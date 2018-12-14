@@ -23,10 +23,12 @@
 	var sad_face = new Image();
 	var back = new Image();
 	var pillar = new Image();
+	var out_pillar = new Image();
 	happy_face.src = "image/nikori.png";
 	sad_face.src = "image/turai.png";
 	back.src = "image/back.jpg";
-	pillar.src = "image/pillar.jpg";
+	pillar.src = "image/pillar.png";
+	out_pillar.src = "image/out_pillar.png";
 
 	function Pipe(){
 		this.x = canv.width;
@@ -36,9 +38,10 @@
 
 		this.draw = function() {
 			context.fillStyle="white";
-			context.fillRect(this.x, 0, 15, this.top_y);
-			context.fillRect(this.x, canv.height-this.bottom_y, 15, this.bottom_y);
-			//context.drawImage(pillar, this.x, 0, 15, this.top_y)
+			//context.fillRect(this.x, 0, 15, this.top_y);
+			//context.fillRect(this.x, canv.height-this.bottom_y, 15, this.bottom_y);
+			context.drawImage(pillar, this.x, 0, 15, this.top_y);
+			context.drawImage(pillar, this.x, canv.height-this.bottom_y, 15, this.bottom_y);
 		}
 		this.update = function() {
 			this.x -= this.xv
@@ -50,13 +53,15 @@
 			if ( bird.x - 25 < this.x && this.x < bird.x + 10 ){
 				if ( bird.y-10 < this.top_y ) {
 					context.drawImage(sad_face, bird.x-10, bird.y-10, 20, 20);
-					context.fillStyle="red";
-					context.fillRect(this.x, 0, 15, this.top_y);
+					//context.fillStyle="red";
+					//context.fillRect(this.x, 0, 15, this.top_y);
+					context.drawImage(out_pillar, this.x, 0, 15, this.top_y);
 					frame_state = 1;
 				}else if (bird.y+10 > canv.height-this.bottom_y){
 					context.drawImage(sad_face, bird.x-10, bird.y-10, 20, 20);
-					context.fillStyle="red";
-					context.fillRect(this.x, canv.height-this.bottom_y, 15, this.bottom_y);
+					//context.fillStyle="red";
+					//context.fillRect(this.x, canv.height-this.bottom_y, 15, this.bottom_y);
+					context.drawImage(out_pillar, this.x, canv.height-this.bottom_y, 15, this.bottom_y);
 					frame_state = 1;
 				} else {
 					frame_state = 0;
@@ -147,7 +152,7 @@
 		//speed up according to score
 		if ( score!=0 && score%100==0 && speed_up_flag==0) {
 			if ( frame_rate >=4 ) {
-				frame_rate-=3;
+				frame_rate*=0.9;
 			} else {
 				frame_rate = frame_rate
 			}
