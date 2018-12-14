@@ -1,4 +1,5 @@
-# flappy_bird
+# Flappy Bird
+有名なゲーム、Flappy Birdを自作しました。
 ## How to play
 1. `git clone https://github.com/takedakun/flappy_bird.git`
 2.  start.html をお好きなブラウザでお開きください。
