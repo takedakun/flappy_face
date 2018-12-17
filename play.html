@@ -9,46 +9,48 @@
 		//setInterval(game, 10);
 	}
 
-	var bird;
-	var pipes = [];
-	var rest_lives = 5;
-	var rest_lives_prev = rest_lives;
-	var score_flag=0;
-	var score = 0;
-	var speed_up_flag = 0;
-	var frame_count = 0;
-	var frame_state = 0;
-	var frame_rate = 30;
-	var happy_face = new Image();
-	var sad_face = new Image();
-	var back = new Image();
-	var pillar = new Image();
-	var out_pillar = new Image();
+	let bird;
+	let pipes = [];
+	let rest_lives = 5;
+	let rest_lives_prev = rest_lives;
+	let score_flag=0;
+	let score = 0;
+	let speed_up_flag = 0;
+	let frame_count = 0;
+	let frame_state = 0;
+	let frame_rate = 30;
+	let happy_face = new Image();
+	let sad_face = new Image();
+	let back = new Image();
+	let pillar = new Image();
+	let out_pillar = new Image();
 	happy_face.src = "image/nikori.png";
 	sad_face.src = "image/turai.png";
 	back.src = "image/back.jpg";
 	pillar.src = "image/pillar.png";
 	out_pillar.src = "image/out_pillar.png";
 
-	function Pipe(){
-		this.x = canv.width;
-		this.top_y = Math.random()*(canv.height/2-15);
-		this.bottom_y = Math.random()*(canv.height/2-15);
-		this.xv = 5;
+	class Pipe {
+		constructor () {
+			this.x = canv.width;
+			this.top_y = Math.random()*(canv.height/2-15);
+			this.bottom_y = Math.random()*(canv.height/2-15);
+			this.xv = 5;
+		}
 
-		this.draw = function() {
+		draw () {
 			context.fillStyle="white";
 			//context.fillRect(this.x, 0, 15, this.top_y);
 			//context.fillRect(this.x, canv.height-this.bottom_y, 15, this.bottom_y);
 			context.drawImage(pillar, this.x, 0, 15, this.top_y);
 			context.drawImage(pillar, this.x, canv.height-this.bottom_y, 15, this.bottom_y);
 		}
-		this.update = function() {
+		update () {
 			this.x -= this.xv
 		}
 
-		this.contact = function(bird) {
-			var prev_frame_state = frame_state;
+		contact (bird) {
+			let prev_frame_state = frame_state;
 			//bird contact pipe or not
 			if ( bird.x - 25 < this.x && this.x < bird.x + 10 ){
 				if ( bird.y-10 < this.top_y ) {
@@ -101,15 +103,18 @@
 		}
 	}
 
-	function Bird() {
-			this.x = 70;
-			this.y = 100;
-			this.gravity = 0.7;
-			this.velocity = 0;
-			this.draw = function () {
+	class Bird {
+			constructor (){
+				this.x = 70;
+				this.y = 100;
+				this.gravity = 0.7;
+				this.velocity = 0;
+			}
+
+			draw () {
 				context.drawImage(happy_face, this.x-10, this.y-10, 20, 20);
 			}
-			this.update = function () {
+			update () {
 				if (this.y < canv.height-10 && this.y > 10) {
 					this.y += this.velocity;
 					this.velocity += this.gravity;
@@ -122,7 +127,7 @@
 					this.velocity += this.gravity;
 				}
 			}
-			this.jump = function () {
+			jump () {
 				this.velocity = -8;
 				if ( this.y >= canv.height-10 ) {
 					this.y += this.velocity;
@@ -142,7 +147,7 @@
 		frame_count += 1;
 		context.drawImage(back, 0, 0, 300, 400);
 		//display rest lives
-		for (var i =0; i < rest_lives; i++) {
+		for (let i =0; i < rest_lives; i++) {
 			context.drawImage(happy_face, canv.width-(i+1)*20, 10, 20, 20);
 		}
 		//display score
@@ -168,7 +173,7 @@
 		if (frame_count%40==0){
 			pipes.push(new Pipe());
 		}
-		for ( var i=0; i<pipes.length; i++ ) {
+		for ( let i=0; i<pipes.length; i++ ) {
 			if (pipes[i].x < -15){
 				pipes.splice(0, 1)
 			}
