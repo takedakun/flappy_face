@@ -12,6 +12,13 @@ function start_screen (canv, context) {
   let back_image = new Image();
   back_image.onload = function () {
     context.drawImage(back_image, 0, 0, 300, 400);
+    context.font = "15pt Arial";
+    context.fillStyle="white";
+    context.textAlign = "center";
+    context.fillText("Flappy Face", 150, 100);
+    context.fillText("画面をクリックして開始!", 150, 130);
+    context.fillText("操作方法: ", 150, 160);
+    context.fillText("画面をクリックorキーボード", 150, 190);
   }
   back_image.src = "assets/image/toropical.jpg";
   document.addEventListener("click", _start_click);
@@ -163,18 +170,18 @@ function game_over (canv, context, score) {
   let back_image = new Image();
   back_image.onload = function () {
     context.drawImage(back_image, 0, 0, 300, 400);
+    context.font = "15pt Arial";
+    context.fillStyle="white";
+    context.textAlign = "center";
+    context.fillText("Your score: "+score, 150, 280);
+    context.fillStyle="gray";
+    context.fillRect(90, 345, 120, 40);
+    context.font = "15pt Arial";
+    context.fillStyle="white"
+    context.fillText("続ける?", 150, 330);
+    context.fillText("click here", 150, 370);
   }
   back_image.src = "assets/image/gameover.jpg";
-  context.font = "15pt Arial";
-  context.fillStyle="white";
-  context.textAlign = "center";
-  context.fillText("Your score: "+score, 150, 280);
-  context.fillStyle="gray";
-  context.fillRect(90, 345, 120, 40);
-  context.font = "15pt Arial";
-  context.fillStyle="white"
-  context.fillText("Continue?", 150, 330);
-  context.fillText("click here", 150, 370);
 
   document.addEventListener("click", _start_click);
   function _start_click(evt) {
