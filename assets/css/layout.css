@@ -1,0 +1,36 @@
+.top_bar {
+  position: relative;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(to right, red, yellow);
+}
+
+.title {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 28px;
+  text-decoration: none;
+}
+
+body {
+  margin: 0px;
+  background-color: #dd3030;
+}
+
+.flappy_face_screen {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#flappy {
+  margin: 10px;
+  border: 10px solid grey;
+}
