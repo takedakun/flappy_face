@@ -1,8 +1,9 @@
 # Flappy Face
 有名なゲーム、Flappy Birdみたいなゲームを自作しました。
 ## How to play
-1. `git clone https://github.com/takedakun/flappy_face.git`
-2.  index.html をお好きなブラウザでお開きください。
+https://takedakun.github.io/flappy_face/
+にアクセスしてプレイ!
+キーボードの適当なキーorクリックで操作できます。
 
 ## Rule
 1. ニコちゃんは重力で下に落ちるので適当なキー(Enter以外)を押してジャンプさせてください。
