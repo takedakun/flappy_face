@@ -32,6 +32,20 @@ body {
 }
 
 #flappy {
+  display: flex;
+  justify-content: center;
   margin: 10px;
   border: 10px solid grey;
+}
+
+.cropped_sofa {
+  height: 200px;
+  overflow: hidden;
+}
+
+.cropped_sofa img {
+  height: 600px;
+  width: auto;
+  overflow: hidden;
+  margin-top: -200;
 }
