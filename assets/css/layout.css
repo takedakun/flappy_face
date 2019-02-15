@@ -32,8 +32,6 @@ body {
 }
 
 #flappy {
-  display: flex;
-  justify-content: center;
   margin: 10px;
   border: 10px solid grey;
 }
@@ -41,11 +39,13 @@ body {
 .cropped_sofa {
   height: 200px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .cropped_sofa img {
   height: 600px;
   width: auto;
   overflow: hidden;
-  margin-top: -200;
+  margin-top: -170;
 }
