@@ -5,13 +5,14 @@
   padding: 0;
   width: 100%;
   overflow: hidden;
-  background-image: linear-gradient(to right, red, yellow);
+  /*background-image: linear-gradient(to right, red, yellow);*/
+  background-color: #eedcb3
 }
 
 .title {
   float: left;
   display: block;
-  color: white;
+  color: #59880b;
   text-align: center;
   font-size: 20px;
   font-weight: 600;
@@ -21,7 +22,7 @@
 
 body {
   margin: 0px;
-  background-color: #dd3030;
+  background-color: white;
 }
 
 .flappy_face_screen {
